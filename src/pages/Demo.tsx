@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { QrCode, Users, BarChart3, LogOut, User } from "lucide-react";
+import { QrCode, Users, BarChart3, LogOut, User, ClipboardList, UserPlus } from "lucide-react";
 import type { User as SupabaseUser } from "@supabase/supabase-js";
 
 const Demo = () => {
@@ -142,37 +142,18 @@ const Demo = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* QR Code Attendance */}
-          <Card className="border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+          {/* Manual Attendance */}
+          <Card 
+            className="border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+            onClick={() => navigate('/attendance')}
+          >
             <CardHeader>
               <div className="flex items-center space-x-3">
                 <div className="p-2 bg-gradient-to-r from-primary to-accent rounded-lg">
-                  <QrCode className="h-6 w-6 text-primary-foreground" />
+                  <ClipboardList className="h-6 w-6 text-primary-foreground" />
                 </div>
                 <div>
-                  <CardTitle>QR Code Attendance</CardTitle>
-                  <CardDescription>
-                    Generate QR codes for quick student check-ins
-                  </CardDescription>
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <Button className="w-full btn-hero">
-                Generate QR Code
-              </Button>
-            </CardContent>
-          </Card>
-
-          {/* Manual Attendance */}
-          <Card className="border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-            <CardHeader>
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-gradient-to-r from-secondary to-accent rounded-lg">
-                  <Users className="h-6 w-6 text-secondary-foreground" />
-                </div>
-                <div>
-                  <CardTitle>Manual Attendance</CardTitle>
+                  <CardTitle>Take Attendance</CardTitle>
                   <CardDescription>
                     Mark attendance manually from student list
                   </CardDescription>
@@ -180,8 +161,80 @@ const Demo = () => {
               </div>
             </CardHeader>
             <CardContent>
-              <Button variant="secondary" className="w-full">
+              <Button className="w-full btn-hero">
                 Take Attendance
+              </Button>
+            </CardContent>
+          </Card>
+
+          {/* My Classes */}
+          <Card 
+            className="border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+            onClick={() => navigate('/classes')}
+          >
+            <CardHeader>
+              <div className="flex items-center space-x-3">
+                <div className="p-2 bg-gradient-to-r from-secondary to-accent rounded-lg">
+                  <Users className="h-6 w-6 text-secondary-foreground" />
+                </div>
+                <div>
+                  <CardTitle>My Classes</CardTitle>
+                  <CardDescription>
+                    Manage your classes and schedules
+                  </CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <Button variant="secondary" className="w-full">
+                Manage Classes
+              </Button>
+            </CardContent>
+          </Card>
+
+          {/* Students */}
+          <Card 
+            className="border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+            onClick={() => navigate('/students')}
+          >
+            <CardHeader>
+              <div className="flex items-center space-x-3">
+                <div className="p-2 bg-gradient-to-r from-accent to-primary rounded-lg">
+                  <UserPlus className="h-6 w-6 text-accent-foreground" />
+                </div>
+                <div>
+                  <CardTitle>Students</CardTitle>
+                  <CardDescription>
+                    Add and manage your student roster
+                  </CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <Button variant="outline" className="w-full">
+                Manage Students
+              </Button>
+            </CardContent>
+          </Card>
+
+          {/* QR Code Attendance */}
+          <Card className="border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <CardHeader>
+              <div className="flex items-center space-x-3">
+                <div className="p-2 bg-gradient-to-r from-muted to-muted-foreground rounded-lg">
+                  <QrCode className="h-6 w-6 text-muted-foreground" />
+                </div>
+                <div>
+                  <CardTitle className="text-muted-foreground">QR Code Attendance</CardTitle>
+                  <CardDescription>
+                    Generate QR codes for quick student check-ins
+                  </CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <Button variant="outline" disabled className="w-full">
+                Coming Soon
               </Button>
             </CardContent>
           </Card>
@@ -190,11 +243,11 @@ const Demo = () => {
           <Card className="border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
             <CardHeader>
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-gradient-to-r from-accent to-primary rounded-lg">
-                  <BarChart3 className="h-6 w-6 text-accent-foreground" />
+                <div className="p-2 bg-gradient-to-r from-muted to-muted-foreground rounded-lg">
+                  <BarChart3 className="h-6 w-6 text-muted-foreground" />
                 </div>
                 <div>
-                  <CardTitle>Analytics</CardTitle>
+                  <CardTitle className="text-muted-foreground">Analytics</CardTitle>
                   <CardDescription>
                     View attendance reports and statistics
                   </CardDescription>
@@ -202,8 +255,8 @@ const Demo = () => {
               </div>
             </CardHeader>
             <CardContent>
-              <Button variant="outline" className="w-full">
-                View Reports
+              <Button variant="outline" disabled className="w-full">
+                Coming Soon
               </Button>
             </CardContent>
           </Card>
