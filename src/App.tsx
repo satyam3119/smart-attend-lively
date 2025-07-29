@@ -9,6 +9,7 @@ import Demo from "./pages/Demo";
 import Classes from "./pages/Classes";
 import Students from "./pages/Students";
 import Attendance from "./pages/Attendance";
+import QRScan from "./pages/QRScan";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/classes" element={<Classes />} />
           <Route path="/students" element={<Students />} />
           <Route path="/attendance" element={<Attendance />} />
+          <Route path="/scan" element={<QRScan />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

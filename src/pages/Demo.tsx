@@ -111,6 +111,21 @@ const Demo = () => {
             </div>
           </div>
           
+          <nav className="hidden md:flex items-center space-x-6 mr-6">
+            <Button variant="ghost" onClick={() => navigate('/classes')}>
+              Classes
+            </Button>
+            <Button variant="ghost" onClick={() => navigate('/students')}>
+              Students
+            </Button>
+            <Button variant="ghost" onClick={() => navigate('/attendance')}>
+              Attendance
+            </Button>
+            <Button variant="ghost" onClick={() => navigate('/scan')}>
+              Scan QR
+            </Button>
+          </nav>
+          
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
               <User className="h-4 w-4 text-muted-foreground" />
@@ -218,23 +233,26 @@ const Demo = () => {
           </Card>
 
           {/* QR Code Attendance */}
-          <Card className="border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+          <Card 
+            className="border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+            onClick={() => navigate('/scan')}
+          >
             <CardHeader>
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-gradient-to-r from-muted to-muted-foreground rounded-lg">
-                  <QrCode className="h-6 w-6 text-muted-foreground" />
+                <div className="p-2 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg">
+                  <QrCode className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <CardTitle className="text-muted-foreground">QR Code Attendance</CardTitle>
+                  <CardTitle>QR Code Scanner</CardTitle>
                   <CardDescription>
-                    Generate QR codes for quick student check-ins
+                    Scan QR codes for quick student check-ins
                   </CardDescription>
                 </div>
               </div>
             </CardHeader>
             <CardContent>
-              <Button variant="outline" disabled className="w-full">
-                Coming Soon
+              <Button variant="outline" className="w-full">
+                Scan QR Code
               </Button>
             </CardContent>
           </Card>

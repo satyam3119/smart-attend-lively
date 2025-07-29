@@ -8,8 +8,9 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Plus, Users, Clock, MapPin } from "lucide-react";
+import { Plus, Users, Clock, MapPin, QrCode } from "lucide-react";
 import { toast } from "sonner";
+import { QRSession } from "@/components/QRSession";
 
 interface Class {
   id: string;
@@ -224,6 +225,24 @@ export default function Classes() {
           </Card>
         ))}
       </div>
+
+      {classes.length > 0 && (
+        <div className="mt-8">
+          <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+            <QrCode className="h-5 w-5" />
+            QR Code Sessions
+          </h3>
+          <div className="grid gap-4">
+            {classes.map((cls) => (
+              <QRSession 
+                key={cls.id} 
+                classId={cls.id} 
+                className={cls.name}
+              />
+            ))}
+          </div>
+        </div>
+      )}
 
       {classes.length === 0 && !showForm && (
         <Card className="text-center py-12">
