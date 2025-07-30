@@ -232,30 +232,6 @@ const Demo = () => {
             </CardContent>
           </Card>
 
-          {/* QR Code Attendance */}
-          <Card 
-            className="border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-            onClick={() => navigate('/scan')}
-          >
-            <CardHeader>
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg">
-                  <QrCode className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <CardTitle>QR Code Scanner</CardTitle>
-                  <CardDescription>
-                    Scan QR codes for quick student check-ins
-                  </CardDescription>
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <Button variant="outline" className="w-full">
-                Scan QR Code
-              </Button>
-            </CardContent>
-          </Card>
 
           {/* Attendance Analytics */}
           <Card className="border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">

@@ -28,8 +28,8 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <Button variant="outline" className="hidden sm:flex" onClick={() => window.location.href = '/demo'}>
-            Demo
+          <Button variant="outline" className="hidden sm:flex" onClick={() => window.location.href = '/student-auth'}>
+            Student Login
           </Button>
           <Button className="btn-hero" onClick={() => window.location.href = '/auth'}>
             Teacher Login
